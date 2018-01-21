@@ -1,0 +1,41 @@
+<html>
+
+<head>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+	var names = ["Rosella","Lelia","Wilmer","Kathrine","Ophelia","Belle","Irwin","Paulina","Josh","Clair","Liza","Althea","Monroe","Magdalena","Thurman","Nona","Ulysses","Hal","Wiley","Norris","Juana","Al","Ned","Aron","Hollis","Louisa","Odessa","Eleanore","Camilla","Cyrus","Augusta","Susanna","Gus","Roxie","Emory","Walker","Issac","Emilia","Elinor","Elvin","Jefferson","Alva","Dolly","Phil","Corrine","Elwood","Neva","Cecile","Jonas","Adelaide","Malinda","Anderson","Erwin","Abbie","India","Nola","Amie","Eve","Roscoe","Ila","Cornelia","Leanna","Murray","Anton","Cleveland","Elma","Rae","Lenore","Juliet","Harlan","Burton","Isiah","Winnie","Emilie","Matt","Willa","Delilah","Edmond","Vance","Emery","Garland","Elisha","Clarice","Frieda","Jess","Elsa","Bennett","Lacy","Rhoda","Ezekiel","Glenna","Davis","Johnie","Tomas","Millie","Selma","Elvira","Boyd","Nell","Ezra","Grover","Phoebe","Emerson","Charley","Silas","Rosetta","Van","Solomon","Hugo","Hallie","Reuben","Alta","Matilda","Polly","Louie","Wilfred","Carey","Eugenia","Luella","Cary","Lea","Otto","Sterling","Ola","Clare","Stewart","Emil","Amos","Clint","Jasper","Percy","Helena","Elva","Dena","Conrad","Helene","Charity","Elbert","Ina","Dorothea","Antonia","Lenora","Bert","Angeline","Hanna","Lucia","Therese","Orville","Anastasia","Delia","Reba","Clay","Moses","Cornelius","Fay","Rufus","Goldie","Abel","Elliott","Fern","Lucinda","Mack","Lou","Bella","August","Ellie","Serena","Iva","Estella","Adele","Ervin","Ivy","Emmett","Leila","Rena","Lizzie","Alonzo","Irvin","Carolina","Sherman","Laurence","Ellis","Wilbert","Etta","Katharine","Clark","Annabelle","Cleo","Carroll","Lela","Mandy","Adeline","Dixie","Freda","Eliza","Lorena","Sylvester","Pete","Irving","Jewel","Elisabeth","Wilson","Effie","Addie","Will","Winifred","Lilly","Selena","Ora","Myron","Mona","Cassie","Eloise","Allie","Emanuel","Orlando","Mollie","Merle","Maude","Lottie","Corinne","Alton","Delbert","Forrest","Bryant","Betsy","Johanna","May","Carlton","Nick","Olive","Randolph","Leland","Nettie","Callie","Sallie","Edmund","Henrietta","Josie","Archie","Simon","Tommie","Lora","Estelle"];
+
+
+	var shortlist = [];
+	var current;
+
+	function nextName() {
+		current = names.pop();
+		if (current) {
+			$('.name').text(current);
+		} else {
+			$('body').html('<h1>Short list</h1><p>' + shortlist.join(', ') + '</p>');
+		}
+		
+	}
+
+	function onKeypress(e) {
+		if (e.keyCode == 50) shortlist.push(current);
+		nextName();
+	}
+
+	$(function(){
+		$(document).on('keypress', onKeypress);
+		nextName();
+	});
+
+	</script>
+	<style type="text/css">
+		#container {padding-top: 3em; font-size: 6em; text-align: center;}
+	</style>
+	</head>
+	<body>
+	<div id="container"><p id="full-name"><span class="name"></span> Elvery</p></div>
+
+	</body>
+	</html>
